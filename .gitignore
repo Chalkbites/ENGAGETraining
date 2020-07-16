@@ -9,7 +9,14 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
-/CorporateTrainingCenter/[Ll]ibrary
+/CorporateTrainingCenter/[Ll]ibrary/
+/CorporateTrainingCenter/[Tt]emp/
+/CorporateTrainingCenter/[Oo]bj/
+/CorporateTrainingCenter/[Bb]uild/
+/CorporateTrainingCenter/[Bb]uilds/
+/CorporateTrainingCenter/[Ll]ogs/
+/CorporateTrainingCenter/[Mm]emoryCaptures/
+
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
 
