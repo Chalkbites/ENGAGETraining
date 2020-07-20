@@ -127,9 +127,6 @@ public class NetworkStateTrigger_GenericMovable : MonoBehaviour
                 go.transform.position = Vector3.Lerp(transA.position, transB.position, lerpValue);
 
             go.transform.rotation = Quaternion.Lerp(transA.rotation, transB.rotation, lerpValue);
-            
-            //ADD SCALE
-            //go.transform.localScale = Vector3.Lerp(transA.localScale, transB.localScale, lerpValue);
         }
     }
 
