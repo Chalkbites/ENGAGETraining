@@ -14855,6 +14855,11 @@ PrefabInstance:
       propertyPath: go.Array.data[1]
       value: 
       objectReference: {fileID: 1795871380}
+    - target: {fileID: 7739796692631081101, guid: 03db524ae81d7db41832c4bd03159337,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7739796692686320040, guid: 03db524ae81d7db41832c4bd03159337,
         type: 3}
       propertyPath: go.Array.data[0]
@@ -34278,6 +34283,7 @@ GameObject:
   - component: {fileID: 4404025066004400739}
   - component: {fileID: 4631173530050162773}
   - component: {fileID: 1403349170225351852}
+  - component: {fileID: 812166006944118897}
   m_Layer: 0
   m_Name: WallBeamBars_008
   m_TagString: Untagged
@@ -34285,6 +34291,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!65 &812166006944118897
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812166006944118896}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.08938036, y: 1.7199959, z: 8.296287}
+  m_Center: {x: 0, y: 0.8599979, z: 0}
 --- !u!33 &814402004734923148
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -42353,6 +42372,7 @@ GameObject:
   - component: {fileID: 1564291408678723095}
   - component: {fileID: 7561117166489216033}
   - component: {fileID: 4310777636771682520}
+  - component: {fileID: 2589045762766367749}
   m_Layer: 0
   m_Name: WallBeamBars_007
   m_TagString: Untagged
@@ -42360,6 +42380,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!65 &2589045762766367749
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2589045762766367748}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.08938036, y: 1.7199959, z: 8.296287}
+  m_Center: {x: 0, y: 0.8599979, z: 0}
 --- !u!1 &2589536979849053573
 GameObject:
   m_ObjectHideFlags: 0
@@ -48157,6 +48190,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5686243784525357465}
   - component: {fileID: 4045718011050111601}
+  - component: {fileID: 3898772722113839521}
+  - component: {fileID: 3898772722113839520}
   m_Layer: 0
   m_Name: WallBeam_Side5
   m_TagString: Untagged
@@ -48164,6 +48199,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!65 &3898772722113839520
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3898772722113839519}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 6.5, z: 6.5}
+  m_Center: {x: 0, y: 6.4, z: -11.9}
+--- !u!65 &3898772722113839521
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3898772722113839519}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 10, z: 10}
+  m_Center: {x: 0, y: 5, z: -20.15}
 --- !u!23 &3931072810635763483
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -48524,7 +48585,7 @@ BoxCollider:
   m_GameObject: {fileID: 3898772722113839519}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.19463348, y: 10, z: 32.905678}
   m_Center: {x: -0.024034977, y: 5, z: 7.783636}
@@ -48876,6 +48937,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710281258705996011, guid: 06a7684680237e14d95ad8c0b55f4b08,
+        type: 3}
+      propertyPath: m_TagString
+      value: TeleportGround
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06a7684680237e14d95ad8c0b55f4b08, type: 3}
@@ -50921,6 +50987,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 4738996427664240148, guid: bbe4db3214600cb44bfaf641a89c97fb,
+        type: 3}
+      propertyPath: m_TagString
+      value: TeleportGround
+      objectReference: {fileID: 0}
     - target: {fileID: 4873454732261604201, guid: bbe4db3214600cb44bfaf641a89c97fb,
         type: 3}
       propertyPath: m_Enabled
@@ -51067,6 +51138,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738996427664240148, guid: bbe4db3214600cb44bfaf641a89c97fb,
+        type: 3}
+      propertyPath: m_TagString
+      value: TeleportGround
       objectReference: {fileID: 0}
     - target: {fileID: 5403585245990342759, guid: bbe4db3214600cb44bfaf641a89c97fb,
         type: 3}
@@ -52837,6 +52913,7 @@ GameObject:
   - component: {fileID: 8148297247252944917}
   - component: {fileID: 887094312788107811}
   - component: {fileID: 6877875108989034202}
+  - component: {fileID: 5138546650911402503}
   m_Layer: 0
   m_Name: Ceiling_001
   m_TagString: Untagged
@@ -52844,6 +52921,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!65 &5138546650911402503
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5138546650911402502}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 47.829315, y: 0.00000024315435, z: 47.829315}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &5148759503401151895
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -64521,6 +64611,7 @@ GameObject:
   - component: {fileID: 5006512735448126484}
   - component: {fileID: 4044710141727469090}
   - component: {fileID: 7718390323497276123}
+  - component: {fileID: 8296172668551177736}
   m_Layer: 0
   m_Name: Forklift23kNoRig_MissingParts
   m_TagString: Untagged
@@ -64528,6 +64619,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &8296172668551177736
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172668551177735}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7822161, y: 2.9048007, z: 3.7120118}
+  m_Center: {x: -0.010955602, y: 1.4524001, z: 0.20752668}
 --- !u!1 &8296172669189071767
 GameObject:
   m_ObjectHideFlags: 0
