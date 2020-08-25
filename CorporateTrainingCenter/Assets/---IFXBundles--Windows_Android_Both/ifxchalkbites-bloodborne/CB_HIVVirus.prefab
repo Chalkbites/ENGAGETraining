@@ -1593,7 +1593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7733984102793679169}
   m_Layer: 0
-  m_Name: HIVVirus
+  m_Name: CB_HIVVirus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1949,6 +1949,7 @@ GameObject:
   - component: {fileID: 6486287369924219587}
   - component: {fileID: 4965926873388425338}
   - component: {fileID: 142821106883826812}
+  - component: {fileID: 788545239996614222}
   m_Layer: 24
   m_Name: Canvas
   m_TagString: Untagged
@@ -2037,6 +2038,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &788545239996614222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7038202762828373883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b68ee264a71081c4aaf8ca1f306f8982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matchParentLayer: 0
+  matchParentLayerForAllChildren: 0
 --- !u!1 &7260477807525292616
 GameObject:
   m_ObjectHideFlags: 0

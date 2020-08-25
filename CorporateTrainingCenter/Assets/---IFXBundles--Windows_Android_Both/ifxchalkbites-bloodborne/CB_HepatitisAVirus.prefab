@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2806285533730154284}
   m_Layer: 0
-  m_Name: CB_HepatitisAVirus 1
+  m_Name: CB_HepatitisAVirus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1580,6 +1580,7 @@ GameObject:
   - component: {fileID: 7172924816183347992}
   - component: {fileID: 7172924816183347993}
   - component: {fileID: 7172924816183347994}
+  - component: {fileID: 2666767769819101797}
   m_Layer: 24
   m_Name: Canvas
   m_TagString: Untagged
@@ -1668,6 +1669,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2666767769819101797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172924816183347989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b68ee264a71081c4aaf8ca1f306f8982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matchParentLayer: 0
+  matchParentLayerForAllChildren: 0
 --- !u!1 &7172924816675919057
 GameObject:
   m_ObjectHideFlags: 0

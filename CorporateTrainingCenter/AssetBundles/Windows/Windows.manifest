@@ -1,11 +1,17 @@
 ManifestFileVersion: 0
-CRC: 3304767045
+CRC: 1223926428
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: local_bundle
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: ifxchalkbites-bloodborne
     Info_1:
       Name: my_sample_scene
-      Dependencies:
-        Dependency_0: local_bundle
+      Dependencies: {}
+    Info_2:
+      Name: ifxvxr-vxr-academy
+      Dependencies: {}
+    Info_3:
+      Name: ifxchalkbites-bloodborne
+      Dependencies: {}

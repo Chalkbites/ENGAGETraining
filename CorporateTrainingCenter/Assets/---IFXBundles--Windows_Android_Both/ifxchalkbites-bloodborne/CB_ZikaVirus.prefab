@@ -589,6 +589,7 @@ GameObject:
   - component: {fileID: 5620408333767253915}
   - component: {fileID: 9092252033339016309}
   - component: {fileID: 2246690899910768193}
+  - component: {fileID: 6849728693470510045}
   m_Layer: 24
   m_Name: Canvas
   m_TagString: Untagged
@@ -677,6 +678,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6849728693470510045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867792522097711775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b68ee264a71081c4aaf8ca1f306f8982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matchParentLayer: 0
+  matchParentLayerForAllChildren: 0
 --- !u!1 &3487716386294631453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,7 +1694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5860649606733183614}
   m_Layer: 0
-  m_Name: ZikaVirus
+  m_Name: CB_ZikaVirus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
