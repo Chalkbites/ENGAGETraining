@@ -1,0 +1,65 @@
+ManifestFileVersion: 0
+CRC: 489351932
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 07c1bb4c162036439967c5b48c4d81ca
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ee2707e93d38beff20e5b035d3427c79
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 89
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 104
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3203d786029530b4888f06d0cfca05bf, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4ce5e8872c8bac54dbfaa1fabcb0aece, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c16b5c4bf20c14e4b964ee3d9b5579ea, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ada0275fb743961478314d54ec3cac5b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e8964e8f340cada48824e2bd83497959, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 157
+  Script: {instanceID: 0}
+- Class: 215
+  Script: {instanceID: 0}
+- Class: 220
+  Script: {instanceID: 0}
+- Class: 258
+  Script: {instanceID: 0}
+Assets:
+- Assets/--Scenes_Bundles_Windows_And_Android/chalkbites-hr-v2/HR-v2.unity
+- Assets/--Scenes_Bundles_Windows_And_Android/chalkbites-hr/MyScene.unity
+Dependencies: []

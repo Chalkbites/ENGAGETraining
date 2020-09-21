@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorCollider: {fileID: 547479269}
-  lowerHeadAmount: 0.6
+  lowerHeadAmount: 0.4
   lockedInSeat: 0
   movingEffect: 0
   m_seatPosition: {x: -0.00000013783574, y: 0.8632197, z: 0.21369003}
@@ -413,13 +413,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 257961029}
-  m_LocalRotation: {x: -0.0013349949, y: 0.0024363096, z: 0.017052297, w: 0.99985075}
+  m_LocalRotation: {x: 0, y: 0.0024172533, z: 0, w: 0.9999971}
   m_LocalPosition: {x: 0.0307746, y: 0, z: -0.14073494}
   m_LocalScale: {x: 0.34446615, y: 1.3612647, z: 0.27606457}
   m_Children: []
   m_Father: {fileID: 5006512736615552114}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.277, z: 0}
 --- !u!65 &257961031
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3216,7 +3216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorCollider: {fileID: 257961030}
-  lowerHeadAmount: 0.6
+  lowerHeadAmount: 0.4
   lockedInSeat: 0
   movingEffect: 0
   m_seatPosition: {x: -0.000000007450581, y: 0.82931477, z: 0.16959107}
@@ -3591,6 +3591,7 @@ MonoBehaviour:
   - {fileID: 62394206}
   - {fileID: 940186001}
   - {fileID: 1230813978}
+  useUHDVideoAsDefault: 0
   outfitOverrideOnStart: -1
   overrideMinDrawDistance: 0
   overrideMaxDrawDistance: 0
@@ -4226,7 +4227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorCollider: {fileID: 1390066663}
-  lowerHeadAmount: 0.6
+  lowerHeadAmount: 0.4
   lockedInSeat: 0
   movingEffect: 0
   m_seatPosition: {x: -0.00000011222437, y: 0.81836915, z: 0.03307866}
