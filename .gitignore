@@ -50,6 +50,32 @@ ExportedObj/
 *.opendb
 *.VC.db
 
+/CorporateTrainingCenter/AssetBundles/
+/CorporateTrainingCenter/IFXBuildToolProjects/
+/CorporateTrainingCenter/Assets/IFX_Thumbnail_Assets/Saved_Thumbnails/*
+UserSettings.json
+UserSettings.json.meta
+Android_Temp.bat
+Android_Temp.bat.meta
+iOS_Temp.bat
+iOS_Temp.bat.meta
+iOSBuild.bat
+AndroidBuild.bat
+iOSBuild.bat.meta
+AndroidBuild.bat
+
+/CorporateTrainingCenter/serSettings.json
+/CorporateTrainingCenter/UserSettings.json.meta
+/CorporateTrainingCenter/Android_Temp.bat
+/CorporateTrainingCenter/Android_Temp.bat.meta
+/CorporateTrainingCenter/iOS_Temp.bat
+/CorporateTrainingCenter/iOS_Temp.bat.meta
+/CorporateTrainingCenter/iOSBuild.bat
+/CorporateTrainingCenter/AndroidBuild.bat
+/CorporateTrainingCenter/iOSBuild.bat.meta
+/CorporateTrainingCenter/AndroidBuild.bat
+
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta

@@ -3,62 +3,138 @@ using UnityEditor;
 using System.Net;
 using System.IO;
 using System;
+using System.Xml;
+using System.Security.Cryptography;
 
 namespace AssetBundles
 {
+    [InitializeOnLoad]
     public class UpdateManager : EditorWindow
     {
-        bool checkComplete = false;
-        bool updateComplete = false;
-        bool updateInProgress = false;
-        bool automaticUpdatesEnabled = false;
+        static bool isBatchMode;
+        static bool updateInProgress = false;
+        static bool automaticUpdatesEnabled = false;
+        static bool packageUpToDate = true;
+        static bool checkOnly = false;
+        static bool autoupdate = true;
+        static bool oldAutoUpdate;
+        static bool initialPackageChecked = false;
+
         float defaultLabelWidth;
         readonly float guiLabelWidth = 160f;
-        readonly string _filepath = "CreatorSDK.unitypackage";
-        readonly string _packageUrl = "https://github.com/immersivevreducation/Engage_CreatorSDK/blob/master/engage_creatorsdk.unitypackage?raw=true";
+        static string packageStatus = "";
+        static readonly string _filepath = "CreatorSDK.unitypackage";
+        static readonly string _localManifestPath = "manifest.xml";
+        static readonly string _xpathConfig = "packageData/autoupdate";
+        static readonly string _xpathVersion = "packageData/checksum";
+        static readonly string _packageUrl = "https://github.com/immersivevreducation/Engage_CreatorSDK/blob/master/CreatorSDK.unitypackage?raw=true";
+        static readonly string _manifestURL = "https://github.com/immersivevreducation/Engage_CreatorSDK/blob/master/manifest.xml?raw=true";
 
-        [MenuItem("SDK/Check for updates")]
+        [MenuItem("Creator SDK/Check for updates")]
         public static void ShowUpdateWindow()
         {
+            //packageStatus = "Checking for update";
+            //checkOnly = true;
+            //ImportPackage();
             GetWindow<UpdateManager>(false, "Update manager", true);
         }
 
-        private void OnGUI()
+        static UpdateManager()
         {
-            GUILayout.Label("Creator SDK package may not be up to date with latest version.");
-            EditorGUILayout.Space();
-            if (GUILayout.Button("Check for updates") && !updateInProgress)
-            {
-                updateInProgress = true;
-                checkComplete = true;
-                ImportPackage();
-            }
-            EditorGUILayout.Space();
-            defaultLabelWidth = EditorGUIUtility.labelWidth;
-            EditorGUIUtility.labelWidth = guiLabelWidth;
-            automaticUpdatesEnabled = EditorGUILayout.Toggle("Enabled automatic updates", false);
-            EditorGUIUtility.labelWidth = defaultLabelWidth;
+            EditorApplication.update += Initialize;
+        }
 
-            if (checkComplete)
+        static void Initialize()
+        {
+            EditorApplication.update -= Initialize;
+            if (!initialPackageChecked && !Application.isBatchMode)
             {
-                if (updateComplete)
+                if (!PlayerPrefs.HasKey("SDKAutoUpdate"))
                 {
-                    GUILayout.Label("Creator SDK updated to latest version!");
+                    autoupdate = true;
+                    PlayerPrefs.SetString("SDKAutoUpdate", "True");
                 }
                 else
                 {
-                    GUILayout.Label("Downloading package from server, this may take several moments...");
+                    if (PlayerPrefs.GetString("SDKAutoUpdate") == "False")
+                    {
+                        autoupdate = false;
+                    }
+                }
+
+                oldAutoUpdate = autoupdate;
+
+                if (autoupdate)
+                {
+                    packageStatus = "Checking for update";
+                    checkOnly = true;
+                    ImportPackage();
                 }
             }
         }
 
-        private void ImportPackage()
+        
+        private void OnGUI()
+        {
+            GUILayout.Label("ENGAGE Creator SDK");
+            EditorGUILayout.Space();
+
+            autoupdate = GUILayout.Toggle(autoupdate, "Check for SDK Updates automatically");
+
+            if(autoupdate != oldAutoUpdate)
+            {
+                PlayerPrefs.SetString("SDKAutoUpdate", autoupdate.ToString());
+                Debug.Log("Set auto-update to " + autoupdate);
+                oldAutoUpdate = autoupdate;
+            }
+
+            EditorGUILayout.Space();
+            EditorGUILayout.Space();
+            if (GUILayout.Button("Check for Update") && !updateInProgress)
+            {
+                CheckXMLExists();
+                packageStatus = "Checking for update";
+                checkOnly = true;
+                ImportPackage();
+            }
+
+            EditorGUILayout.Space();
+
+            if (!packageUpToDate)
+            {
+                if (GUILayout.Button("Update to latest version") && !updateInProgress)
+                {
+                    packageStatus = "Updating to latest version";
+                    checkOnly = false;
+                    ImportPackage();
+                }
+            }
+
+            EditorGUILayout.Space();
+            EditorGUILayout.Space();
+            EditorGUILayout.Space();
+            EditorGUILayout.Space();
+
+            GUILayout.Label(packageStatus);
+        }
+
+        static void CheckXMLExists()
+        {
+            if (!File.Exists(_localManifestPath))
+            {
+                string xmlFile = "<?xml version=\"1.0\" encoding=\"utf-16\"?>\n<packageData>\n  <checksum>af0200e7837cc</checksum>\n  <autoupdate>False</autoupdate>\n</packageData>";
+                File.WriteAllText(_localManifestPath, xmlFile);
+            }
+        }
+
+        private static void ImportPackage()
         {
             WebClient wc = new WebClient();
             Uri _uri = new Uri(_packageUrl);
             wc.DownloadFileCompleted += Wc_DownloadFileCompleted;
             try
             {
+                updateInProgress = true;
                 wc.DownloadFileAsync(_uri, "CreatorSDK");
             }
             catch
@@ -67,7 +143,19 @@ namespace AssetBundles
             }
         }
 
-        private void Wc_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        private static bool PackageIsUpToDate(string _path)
+        {
+            if (File.Exists(_localManifestPath))
+            {
+                return GetMD5Checksum(_path) == GetValueFromXML(File.ReadAllText(_localManifestPath), _xpathVersion);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private static void Wc_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
             updateInProgress = false;
             try
@@ -78,17 +166,94 @@ namespace AssetBundles
 
                 if (File.Exists(_filepath))
                 {
-                    AssetDatabase.ImportPackage(_filepath, false);
-                    updateComplete = true;
+                    if (PackageIsUpToDate(_filepath))
+                    {
+                        packageStatus = "Creator SDK Package is up to date";
+                        packageUpToDate = true;
+                        initialPackageChecked = true;
+                        return;
+                    }
+                    else
+                    {
+                        if (!checkOnly)
+                        {
+                            AssetDatabase.ImportPackage(_filepath, false);
+                            WriteDataToXML(File.ReadAllText(_localManifestPath), "packageData/checksum", GetMD5Checksum(_filepath));
+                            packageStatus = "Creator SDK Package is up to date";
+                            packageUpToDate = true;
+                            initialPackageChecked = true;
+                        }
+                        else
+                        {
+                            packageUpToDate = false;
+                            packageStatus = "New Creator SDK Update Available!\n\nPlease click \"Update to Latest Version\" to stay up-to-date";
+                            ShowUpdateWindow();
+                            initialPackageChecked = true;
+                        }
+                    }
                 }
                 else
                 {
+                    packageStatus = "Error Updating to latest version";
                     throw new FileNotFoundException();
                 }
             }
             catch
             {
+                packageStatus = "Error Updating to latest version";
                 throw e.Error;
+            }
+        }
+
+        private static string GetValueFromXML(string _xml, string _xpath)
+        {
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.LoadXml(_xml);
+            string xpath = _xpath;
+            var node = xDoc.SelectSingleNode(xpath);
+
+            return node.InnerXml;
+        }
+
+        private static void WriteDataToXML(string _xml, string _xpath, string _value)
+        {
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.LoadXml(_xml);
+            string xpath = _xpath;
+            var node = xDoc.SelectSingleNode(xpath);
+            node.InnerXml = _value;
+            xDoc.Save(_localManifestPath);
+        }
+
+        private static void WriteDataToXML(string _xml, string _xpath, int _value)
+        {
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.LoadXml(_xml);
+            string xpath = _xpath;
+            var node = xDoc.SelectSingleNode(xpath);
+            node.InnerXml = _value.ToString();
+            xDoc.Save(_localManifestPath);
+        }
+
+        private static void WriteDataToXML(string _xml, string _xpath, bool _value)
+        {
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.LoadXml(_xml);
+            string xpath = _xpath;
+            var node = xDoc.SelectSingleNode(xpath);
+            node.InnerXml = _value.ToString();
+            xDoc.Save(_localManifestPath);
+        }
+
+        private static string GetMD5Checksum(string _path)
+        {
+            using (var md5 = MD5.Create())
+            {
+                using (var stream = File.OpenRead(_path))
+                {
+                    var hash = md5.ComputeHash(stream);
+                    return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+                }
             }
         }
     }
