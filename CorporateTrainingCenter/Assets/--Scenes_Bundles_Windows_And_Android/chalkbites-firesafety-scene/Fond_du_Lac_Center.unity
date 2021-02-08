@@ -14803,6 +14803,11 @@ PrefabInstance:
       propertyPath: tvScreenNotLoaded
       value: 
       objectReference: {fileID: 901482328}
+    - target: {fileID: 2680885112990582930, guid: 2fdacf9f58203e34ab6f1e93a0d0ae7d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 52765ae85703f564f99fac4eb3706c26, type: 2}
     - target: {fileID: 6189189082677723801, guid: 2fdacf9f58203e34ab6f1e93a0d0ae7d,
         type: 3}
       propertyPath: m_IsActive
@@ -24111,6 +24116,11 @@ PrefabInstance:
       propertyPath: tvScreenNotLoaded
       value: 
       objectReference: {fileID: 1570829113}
+    - target: {fileID: 2680885112990582930, guid: 2fdacf9f58203e34ab6f1e93a0d0ae7d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 52765ae85703f564f99fac4eb3706c26, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fdacf9f58203e34ab6f1e93a0d0ae7d, type: 3}
 --- !u!1 &1570829113 stripped
