@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using Engage.Avatars.Poses;
 
 [CustomEditor(typeof(LVR_SitTrigger)), CanEditMultipleObjects]
 public class SitTriggerInspector : Editor
@@ -11,12 +12,16 @@ public class SitTriggerInspector : Editor
     private bool hndlMeshesCreated;
 
     private LVR_SitTrigger tgt;
+    private PoseTrigger pose;
 
     public Transform lfHandle, rfHandle, sHandle;
 
     private void OnEnable()
     {
         tgt = (LVR_SitTrigger)target;
+
+        if (tgt.HasAdvancedPose)
+            pose = tgt.AdvancedPose;
     }
     private void OnDisable()
     {
@@ -27,10 +32,18 @@ public class SitTriggerInspector : Editor
     {
         base.OnInspectorGUI();
         editMode = EditorGUILayout.Toggle("Edit Mode", editMode);
+
+        if (pose == null)
+        {
+            if (GUILayout.Button("Add Advanced Pose"))
+            {
+                pose = tgt.CreateAdvancedPose();
+            }
+        }
     }
     protected virtual void OnSceneGUI()
     {
-        if (editMode)
+        if (editMode && pose == null)
         {
             if (hndlMeshesCreated == false)
             {
@@ -83,18 +96,22 @@ public class SitTriggerInspector : Editor
         lfHandle.hideFlags = HideFlags.HideAndDontSave;
         lfHandle.position = tgt.floorCollider.position + tgt.floorCollider.TransformDirection(tgt.m_leftFootPos);
         lfHandle.gameObject.AddComponent<MeshFilter>().mesh = Resources.Load<GameObject>("Prefab_Mesh_FootL").GetComponent<MeshFilter>().sharedMesh;
+
         rfHandle = new GameObject("Right Foot Handle").transform;
         rfHandle.hideFlags = HideFlags.HideAndDontSave;
         rfHandle.position = tgt.floorCollider.position + tgt.floorCollider.TransformDirection(tgt.m_rightFootPos);
         rfHandle.gameObject.AddComponent<MeshFilter>().mesh = Resources.Load<GameObject>("Prefab_Mesh_FootR").GetComponent<MeshFilter>().sharedMesh;
+
         sHandle = new GameObject("Seat Handle").transform;
         sHandle.hideFlags = HideFlags.HideAndDontSave;
         sHandle.position = tgt.floorCollider.position + tgt.floorCollider.TransformDirection(tgt.m_seatPosition);
         sHandle.gameObject.AddComponent<MeshFilter>().mesh = Resources.Load<GameObject>("Prefab_Mesh_Seat").GetComponent<MeshFilter>().sharedMesh;
+
         lfHandle.eulerAngles = rfHandle.transform.eulerAngles = sHandle.transform.eulerAngles = tgt.floorCollider.eulerAngles;
         lfHandle.SetParent(tgt.floorCollider);
         rfHandle.SetParent(tgt.floorCollider);
         sHandle.SetParent(tgt.floorCollider);
+
         lfHandle.gameObject.AddComponent<MeshRenderer>().sharedMaterial =
             rfHandle.gameObject.AddComponent<MeshRenderer>().sharedMaterial =
             sHandle.gameObject.AddComponent<MeshRenderer>().sharedMaterial =

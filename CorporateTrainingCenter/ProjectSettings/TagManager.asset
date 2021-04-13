@@ -23,9 +23,6 @@ TagManager:
   - na13
   - na14
   - TheaterScreen
-  - FireExtinguisherABC
-  - Fire
-  - ExtinguisherParticle
   layers:
   - Default
   - TransparentFX

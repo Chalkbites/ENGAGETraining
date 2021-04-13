@@ -41,6 +41,15 @@ namespace AssetBundles
             BuildAssetBundles();
         }
 
+        public static void BuildAssetBundlesMac()
+        {
+            if (EditorUserBuildSettings.activeBuildTarget != BuildTarget.StandaloneOSX)
+            {
+                EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX);
+            }
+            BuildAssetBundles();
+        }
+
         public static void BuildAssetBundles()
         {
             // Choose the output path according to the build target.
