@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5884842734029896178}
   - component: {fileID: 5884842734029896176}
   - component: {fileID: 5884842734029896179}
-  m_Layer: 5
+  m_Layer: 24
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 5884842735082525476}
   - component: {fileID: 5884842735082525479}
   - component: {fileID: 5884842735082525478}
-  m_Layer: 5
+  m_Layer: 24
   m_Name: Graph
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4308802312055176912}
   m_Layer: 0
-  m_Name: Conflict Graph_HVAC 1
+  m_Name: Conflict_Graph_HVAC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
