@@ -1,0 +1,2 @@
+The scene SaturnV_RedTower_Launchpad includes an FPSController from Standard Assets.
+Import Standard Assets in order to walk around the scene.
