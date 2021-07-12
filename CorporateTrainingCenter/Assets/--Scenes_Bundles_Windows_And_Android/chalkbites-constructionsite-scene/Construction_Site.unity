@@ -35498,7 +35498,7 @@ Transform:
   m_LocalScale: {x: 0.54445016, y: 0.54445, z: 0.31883004}
   m_Children: []
   m_Father: {fileID: 1611157709}
-  m_RootOrder: 389
+  m_RootOrder: 279
   m_LocalEulerAnglesHint: {x: 0, y: -145.419, z: 0}
 --- !u!1001 &1044207316
 PrefabInstance:
@@ -53732,6 +53732,7 @@ Transform:
   - {fileID: 1490826345}
   - {fileID: 862874563}
   - {fileID: 1264613895}
+  - {fileID: 1042956065}
   - {fileID: 693482401}
   - {fileID: 178850234}
   - {fileID: 1518620247}
@@ -53842,7 +53843,6 @@ Transform:
   - {fileID: 290687872}
   - {fileID: 293216730}
   - {fileID: 2089759324}
-  - {fileID: 1042956065}
   - {fileID: 1861775267}
   - {fileID: 715473289}
   - {fileID: 746073096}
@@ -66842,7 +66842,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1866862414
 AudioListener:
   m_ObjectHideFlags: 0
@@ -66858,7 +66858,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866862413}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
